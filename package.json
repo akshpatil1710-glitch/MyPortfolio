@@ -9,6 +9,7 @@
     "dev": "node --watch server.js"
   },
   "dependencies": {
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "resend": "^6.28.1"
   }
 }
