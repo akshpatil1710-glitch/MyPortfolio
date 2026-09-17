@@ -95,10 +95,10 @@ app.post("/api/contact", async (req, res) => {
     });
 
     if (error) {
-      console.error("Resend error:", error);
+      console.error("Resend error:", JSON.stringify(error));
       return res.status(500).json({
         success: false,
-        message: "Failed to send message. Please try again later."
+        message: `Resend error: ${error.message || error.name || JSON.stringify(error)}`
       });
     }
 
