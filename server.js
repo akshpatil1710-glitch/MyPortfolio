@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3000;
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 // The email address where contact form messages will be delivered to
-const TO_EMAIL = process.env.TO_EMAIL || "akshaypatil17101@gmail.com";
+const TO_EMAIL = process.env.TO_EMAIL || "akshpatil1710@gmail.com";
 
 // The "from" address — must be a verified Resend domain.
 // On the free tier with no custom domain, use: onboarding@resend.dev
@@ -98,7 +98,7 @@ app.post("/api/contact", async (req, res) => {
       console.error("Resend error:", JSON.stringify(error));
       return res.status(500).json({
         success: false,
-        message: `Resend error: ${error.message || error.name || JSON.stringify(error)}`
+        message: "Failed to send message. Please try again later."
       });
     }
 
