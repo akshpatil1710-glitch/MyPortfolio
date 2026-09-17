@@ -2,11 +2,31 @@
   "version": 2,
   "builds": [
     {
+      "src": "index.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "style.css",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "script.js",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "assets/**",
+      "use": "@vercel/static"
+    },
+    {
       "src": "server.js",
       "use": "@vercel/node"
     }
   ],
   "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/server.js"
+    },
     {
       "src": "/style.css",
       "dest": "/style.css"
@@ -20,12 +40,8 @@
       "dest": "/assets/$1"
     },
     {
-      "src": "/data/(.*)",
-      "dest": "/data/$1"
-    },
-    {
       "src": "/(.*)",
-      "dest": "/server.js"
+      "dest": "/index.html"
     }
   ]
 }
